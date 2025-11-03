@@ -4,8 +4,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #ffffff;
+  color: rgb(255, 255, 255);
+  background-color: #fffdfd;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -49,12 +49,12 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #ffffff;
+  background-color: #b417ed;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #7709f4;
 }
 button:focus,
 button:focus-visible {
