@@ -1,0 +1,379 @@
+.slide-overlay-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+  pointer-events: none;
+}
+
+.slide-overlay-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.slide-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+  z-index: 101;
+  transform: translateY(100%);
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  transition: transform 0.6s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+}
+
+.slide-overlay.open {
+  animation: waveUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes waveUp {
+  0% {
+    transform: translateY(100%);
+  }
+  60% {
+    transform: translateY(-1.5%);
+  }
+  85% {
+    transform: translateY(0.5%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+.slide-overlay-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  overflow: visible;
+  position: relative;
+  z-index: 1;
+}
+
+.slide-overlay-title {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.9);
+  margin: 0;
+  display: inline-block;
+  overflow: visible;
+  position: relative;
+  text-rendering: optimizeLegibility;
+}
+
+.melt-char {
+  display: inline-block;
+  transform-origin: top center;
+  animation: none;
+  position: relative;
+  will-change: transform;
+}
+
+
+
+.slide-overlay-close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  padding: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.slide-overlay-close:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.slide-overlay-content {
+  padding: 2rem;
+  overflow: hidden;
+  flex: 1;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 1rem;
+  line-height: 1.6;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.portfolio-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 3rem;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-svg {
+  max-width: 20%;
+  max-height: 60vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: center center;
+  position: absolute;
+  cursor: pointer;
+}
+
+.perspex-image {
+  opacity: 1;
+  filter: brightness(1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 0;
+  position: relative;
+  will-change: transform;
+  clip-path: none;
+}
+
+.perspex-image:nth-child(1) {
+  left: 5%;
+  top: 5%;
+  z-index: 1;
+  position: absolute;
+}
+
+.perspex-image:nth-child(2) {
+  left: 35%;
+  top: 5%;
+  z-index: 2;
+  position: absolute;
+}
+
+.perspex-image:hover {
+  opacity: 1;
+  filter: brightness(1.1);
+  transform: scale(1.05);
+  animation-play-state: paused;
+}
+
+@keyframes cellFloat1 {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    left: 10%;
+    top: 5%;
+  }
+  12.5% {
+    transform: translate(0, 0) rotate(0deg);
+    left: 25%;
+    top: 5%;
+  }
+  25% {
+    transform: translate(0, 0) rotate(0deg);
+    left: 25%;
+    top: 20%;
+  }
+  37.5% {
+    transform: translate(0, 0) rotate(0deg);
+    left: 45%;
+    top: 20%;
+  }
+  50% {
+    transform: translate(0, 0) rotate(0deg);
+    left: 45%;
+    top: 40%;
+  }
+  62.5% {
+    transform: translate(0, 0) rotate(0deg);
+    left: 65%;
+    top: 40%;
+  }
+  75% {
+    transform: translate(0, 0) rotate(0deg);
+    left: 65%;
+    top: 60%;
+  }
+  87.5% {
+    transform: translate(0, 0) rotate(0deg);
+    left: 80%;
+    top: 60%;
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+    left: 10%;
+    top: 5%;
+  }
+}
+
+@keyframes cellFloat2 {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    left: 15%;
+    top: 10%;
+  }
+  14.3% {
+    transform: translate(0, 0) rotate(0deg);
+    left: 15%;
+    top: 30%;
+  }
+  28.6% {
+    transform: translate(0, 0) rotate(0deg);
+    left: 35%;
+    top: 30%;
+  }
+  42.9% {
+    transform: translate(0, 0) rotate(0deg);
+    left: 35%;
+    top: 50%;
+  }
+  57.2% {
+    transform: translate(0, 0) rotate(0deg);
+    left: 55%;
+    top: 50%;
+  }
+  71.5% {
+    transform: translate(0, 0) rotate(0deg);
+    left: 55%;
+    top: 70%;
+  }
+  85.8% {
+    transform: translate(0, 0) rotate(0deg);
+    left: 75%;
+    top: 70%;
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+    left: 15%;
+    top: 10%;
+  }
+}
+
+@keyframes cellFloat {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate(10%, -8%) scale(1.01) rotate(1deg);
+  }
+  66% {
+    transform: translate(-8%, 12%) scale(0.99) rotate(-1deg);
+  }
+  100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+}
+
+/* Enlarged Image Modal */
+.enlarged-image-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.enlarged-image-container {
+  position: relative;
+  max-width: 90%;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.enlarged-image {
+  max-width: 100%;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  animation: scaleIn 0.3s ease-out;
+}
+
+.enlarged-image.flip-180 {
+  animation: scaleInRotate 0.3s ease-out;
+  transform: rotate(180deg);
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleInRotate {
+  from {
+    transform: scale(0.8) rotate(180deg);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+.enlarged-image-close {
+  position: absolute;
+  top: -3rem;
+  right: 0;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  font-size: 2.5rem;
+  color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  padding: 0;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  z-index: 201;
+}
+
+.enlarged-image-close:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+}
+
+

@@ -14,46 +14,46 @@
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: left;
+  justify-content: left;
   z-index: 10;
   pointer-events: none;
 }
 
 .hero-content {
-  text-align: center;
+  text-align: left;
   color: white;
   padding: 2rem;
   max-width: 800px;
   pointer-events: auto;
-  backdrop-filter: blur(2px);
-  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: none;  /* Disabled backdrop-filter */
+  background: none;       /* Removed background */
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .hero-title {
-  font-size: 4rem;
+  font-size: 1.2rem;  /* Adjusted to match subtitle */
   font-weight: 700;
   margin: 0 0 1rem 0;
-  background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+  background: linear-gradient(135deg, #000000 0%, #000000 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 4px 20px rgb(226, 223, 223);
   animation: fadeInDown 1s ease-out;
 }
 
 .hero-subtitle {
-  font-size: 1.5rem;
+  font-size: 1.2rem;  /* Same font size as hero-title */
   margin: 0 0 2.5rem 0;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 0, 0, 0.9);
   font-weight: 300;
   animation: fadeInUp 1s ease-out 0.2s both;
 }
 
 .hero-subtitle::after {
-  content: ' Hover and click the 3D models to interact!';
+  content: ' Click the cubes to browse';
   display: block;
   font-size: 1rem;
   margin-top: 0.5rem;
@@ -69,42 +69,11 @@
   animation: fadeInUp 1s ease-out 0.4s both;
 }
 
-.cta-button {
-  padding: 1rem 2.5rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  pointer-events: auto;
-}
 
-.cta-button.primary {
-  background: linear-gradient(135deg, #646cff 0%, #535bf2 100%);
-  color: white;
-  box-shadow: 0 4px 15px rgba(100, 108, 255, 0.4);
-}
 
-.cta-button.primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(100, 108, 255, 0.6);
-}
 
-.cta-button.secondary {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
-}
 
-.cta-button.secondary:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
-  transform: translateY(-2px);
-}
+
 
 @keyframes fadeInDown {
   from {
@@ -128,6 +97,28 @@
   }
 }
 
+.hover-label {
+  animation: colorShift 3s ease-in-out infinite;
+}
+
+@keyframes colorShift {
+  0% {
+    color: rgba(0, 0, 0, 0.9);
+  }
+  25% {
+    color: rgba(138, 43, 226, 0.9); /* Purple */
+  }
+  50% {
+    color: rgba(255, 20, 147, 0.9); /* Deep pink */
+  }
+  75% {
+    color: rgba(30, 144, 255, 0.9); /* Dodger blue */
+  }
+  100% {
+    color: rgba(0, 0, 0, 0.9);
+  }
+}
+
 @media (max-width: 768px) {
   .hero-title {
     font-size: 2.5rem;
@@ -142,8 +133,5 @@
     align-items: stretch;
   }
 
-  .cta-button {
-    width: 100%;
-  }
+  
 }
-
