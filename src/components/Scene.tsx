@@ -4,7 +4,11 @@ import { InteractiveModel } from './OrbitingModel'
 import newartcube from '../assets/newartcube.glb?url'
 import newartcube2 from '../assets/newartcube2.glb?url'
 
-export function Scene() {
+interface SceneProps {
+  onCubeClick: (overlayType: string) => void
+}
+
+export function Scene({ onCubeClick }: SceneProps) {
   return (
     <Canvas
       shadows
@@ -40,17 +44,23 @@ export function Scene() {
         path={newartcube}
         position={[-2.5, 0, 0]}
         name="cube1"
+        label="portfolio"
+        glowColor={[138, 43, 226]} // Purple for portfolio
+        onClick={() => onCubeClick('portfolio')}
       />
       <InteractiveModel
         path={newartcube2}
         position={[2.5, 0, 0]}
         name="cube2"
+        label="contact"
+        glowColor={[30, 144, 255]} // Blue for contact (adjust based on actual dominant color)
+        onClick={() => onCubeClick('contact')}
       />
 
       {/* Camera Controls - more flexible for interaction */}
       <OrbitControls
-        enablePan={true}
-        enableZoom={true}
+        enablePan={false}
+        enableZoom={false}
         enableRotate={true}
         minDistance={4}
         maxDistance={15}
