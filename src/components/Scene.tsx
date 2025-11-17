@@ -53,7 +53,7 @@ export function Scene({ onCubeClick }: SceneProps) {
         position={[2.5, 0, 0]}
         name="cube2"
         label="contact"
-        glowColor={[30, 144, 255]} // Blue for contact (adjust based on actual dominant color)
+        glowColor={[30, 144, 255]} // Blue for contact
         onClick={() => onCubeClick('contact')}
       />
 
